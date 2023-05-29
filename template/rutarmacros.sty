@@ -1,6 +1,13 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{rutarmacros}[2023/05/20 Rutar Macros]
 
+\RequirePackage{enumitem}
+\SetEnumitemKey{nl}{nolistsep}
+\SetEnumitemKey{r}{label=(\roman*)}
+\SetEnumitemKey{a}{label=(\alph*)}
+
+\RequirePackage{graphicx}
+
 \RequirePackage{tikz, pgfplots}
 \pgfplotsset{compat=1.15}
 \usetikzlibrary{intersections,positioning,cd,calc,bending}

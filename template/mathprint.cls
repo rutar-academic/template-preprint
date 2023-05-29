@@ -19,13 +19,6 @@
 \RequirePackage{stmaryrd}
 \SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n} % fix missing bold font error
 
-\RequirePackage{graphicx}
-
-\RequirePackage{enumitem}
-\SetEnumitemKey{nl}{nolistsep}
-\SetEnumitemKey{r}{label=(\roman*)}
-\SetEnumitemKey{a}{label=(\alph*)}
-
 % styling
 % -------
 

@@ -1,3 +1,14 @@
+_exclude:
+  - "copier.yaml"
+  - ".git"
+  - ".DS_Store"
+
+_subdirectory: template
+
+_skip_if_exists:
+  - "*.tex"
+  - "*.bib"
+
 title:
     type: str
     help: What is the title?
@@ -7,5 +18,5 @@ short_title:
     help: What is the short title?
 
 toc:
-    type: bool # This makes Copier ask for y/n
+    type: bool
     help: Do you want a table of contents?
