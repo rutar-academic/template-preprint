@@ -1,0 +1,11 @@
+title:
+    type: str
+    help: What is the title?
+
+short_title:
+    type: str
+    help: What is the short title?
+
+toc:
+    type: bool # This makes Copier ask for y/n
+    help: Do you want a table of contents?
