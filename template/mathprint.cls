@@ -5,7 +5,7 @@
 \ProcessOptions\relax
 
 \LoadClass[12pt,a4paper,twoside,leqno]{article}
-\RequirePackage[left=3cm, right=3cm, top=3cm, bottom=3cm]{geometry}
+\RequirePackage[left=2.5cm, right=2.5cm, top=3cm, bottom=2.5cm]{geometry}
 \RequirePackage[leqno]{amsmath} % process leqno option
 
 % core package loads
