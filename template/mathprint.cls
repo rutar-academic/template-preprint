@@ -1,6 +1,9 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{mathprint}[2023/05/20 Mathematics Preprint Class]
 
+\DeclareOption{toc}{\AfterEndEnvironment{abstract}{\tableofcontents}}
+\ProcessOptions\relax
+
 \LoadClass[12pt,a4paper,twoside,leqno]{article}
 \RequirePackage[left=3cm, right=3cm, top=3cm, bottom=3cm]{geometry}
 \RequirePackage[leqno]{amsmath} % process leqno option
@@ -136,8 +139,13 @@
 % print title, bibliography, and addresslist
 \AtBeginDocument{\maketitle}
 \AtEndDocument{\printbibliography\renewcommand*{\arraystretch}{2.5}\noindent\begin{longtable}{l}\@addresslist\end{longtable}}
-\DeclareOption{toc}{\AfterEndEnvironment{abstract}{\tableofcontents}}
-\ProcessOptions\relax
+
+\AtEndPreamble{
+  \hypersetup{
+    pdfauthor = \@authors,
+    pdftitle = \@title
+  }
+}
 
 % warnings if things are missing
 \AtBeginDocument{\ifx\@authors\empty\ClassError{mathprint}{No authors provided}\fi}
@@ -403,7 +411,7 @@
     linkcolor  = mylinkcolor!\myshade!black,
     citecolor  = mycitecolor!\myshade!black,
     urlcolor   = myurlcolor!\myshade!black,
-    colorlinks = true,
+    colorlinks = true
 }
 
 
