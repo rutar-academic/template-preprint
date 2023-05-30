@@ -8,6 +8,7 @@ _subdirectory: template
 _skip_if_exists:
   - "*.tex"
   - "*.bib"
+  - "macros.sty"
 
 title:
     type: str
