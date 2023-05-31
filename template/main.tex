@@ -1,11 +1,12 @@
 \pdfoutput=1
-\documentclass{% if toc %}[toc]{% endif %}{mathprint}
+\documentclass{mathprint} % use option [toc] to include table of contents
 \usepackage{rutarmacros}
 \usepackage{macros}
 
-\addbibresource{main.bib}
+% uncomment to add bibliography file
+% \addbibresource{main.bib}
 
-\title[{{ short_title }}]{{ '{' ~ title ~ '}' }}
+\title[SHORT_TITLE]{TITLE}
 
 % uncomment to include journal reference
 % \journal{REPLACE}
