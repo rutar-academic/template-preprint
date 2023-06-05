@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{mathprint}[2023/05/20 Mathematics Preprint Class]
+\ProvidesClass{mathprint}[2023/06/05 Mathematics Preprint Class]
 
 \DeclareOption{toc}{\AfterEndEnvironment{abstract}{\tableofcontents}}
 \ProcessOptions\relax
@@ -68,12 +68,18 @@
 \RequirePackage{longtable}
 % allow inputting multiple authors with separate commands
 \newcommand*\@authors{}
+\newcommand*\@headauthors{}
 \newcommand*\@addresslist{}
-\renewcommand*\author[3]
-  {\ifx\@authors\empty
-     \def\@authors{#1}%
+\renewcommand*\author[4][]{%
+   \ifx\@authors\empty
+     \def\@authors{#2}%
    \else
-     \g@addto@macro\@authors{~\&~#1}%
+     \g@addto@macro\@authors{~\&~#2}%
+   \fi
+   \ifx\@headauthors\empty
+       \def\@headauthors{\ifstrempty{#1}{#2}{#1}}%
+   \else
+     \g@addto@macro\@headauthors{~\&~\ifstrempty{#1}{#2}{#1}}%
    \fi
    \ifx\@addresslist\empty%
    \else
@@ -81,9 +87,9 @@
    \fi
    \g@addto@macro\@addresslist{
      \begin{minipage}[t]{0.95\textwidth}
-       \itshape\textbf{#1}
-       \ifstrempty{#2}{}{\\#2}
-       \ifstrempty{#3}{}{\\\normalfont Email: \href{mailto:#3}{\texttt{#3}}}
+       \itshape\textbf{#2}
+       \ifstrempty{#2}{}{\\#3}
+       \ifstrempty{#3}{}{\\\normalfont Email: \href{mailto:#3}{\texttt{#4}}}
      \end{minipage}%
    }
 }
@@ -114,7 +120,7 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 \fancyhf{}
-\fancyhead[CE]{\small\scshape\@authors}
+\fancyhead[CE]{\small\scshape\@headauthors}
 \fancyhead[CO]{\small\scshape\@shorttitle}
 \fancyhead[LE]{\small\thepage}
 \fancyhead[RO]{\small\thepage}
@@ -131,7 +137,7 @@
 
 \fancypagestyle{plain}{\fancyhf{}\@journal}
 
-% custom acknowledgements
+% custom acknowledgements environment
 \newenvironment{acknowledgements}
   {\section*{Acknowledgements}\addcontentsline{toc}{section}{Acknowledgements}}
   {}
