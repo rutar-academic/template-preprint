@@ -430,6 +430,7 @@
 \newenvironment{proofref}[1]{\begin{proof}[of \cref{#1}]}{\end{proof}}
 
 % Format references
+\crefformat{enumi}{#2#1#3}
 \crefformat{equation}{(#2#1#3)}
 \crefformat{theorem}{#2Theorem #1#3}
 \crefformat{lemma}{#2Lemma #1#3}
