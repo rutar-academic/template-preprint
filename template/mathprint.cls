@@ -402,6 +402,8 @@
   \usebibmacro{archive}%
   \usebibmacro{finentry}}
 
+\def\blx@warn@bibempty{}
+
 
 % hyperref
 % --------
