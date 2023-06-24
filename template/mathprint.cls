@@ -103,7 +103,6 @@
   \null
   \vskip 2em%
   \begin{center}%
-  \let \footnote \thanks
     {\LARGE \@title \par}%
     \vskip 1.5em%
     {\large\scshape
