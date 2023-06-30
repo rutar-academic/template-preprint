@@ -54,6 +54,7 @@
 % dimension macros
 \DeclareMathOperator{\dimH}{dim_H}
 \DeclareMathOperator{\dimB}{dim_B}
+\DeclareMathOperator{\dimP}{dim_P}
 \DeclareMathOperator{\dimlB}{\underline{dim}_B}
 \DeclareMathOperator{\dimuB}{\overline{dim}_B}
 \DeclareMathOperator{\dimA}{dim_A}
@@ -63,7 +64,14 @@
 \newcommand{\dimuAs}[1]{\ensuremath{\overline{\operatorname{dim}}^{#1}_{\mathrm{A}}}}
 \newcommand{\diniu}[1]{\ensuremath{D^{#1}\!}}
 \newcommand{\dinil}[1]{\ensuremath{D_{#1}}}
-\DeclareMathOperator{\Tan}{Tan}
+
+% symbolic coding macros
+\newcommand{\mtt}{\mathtt}
+\newcommand{\bmtt}[1]{\bm{\mathtt{#1}}}
+\newcommand{\npre}[1]{{\upharpoonleft}_{#1}}
+
+\DeclareMathOperator*{\essinf}{ess\,inf}
+\DeclareMathOperator*{\esssup}{ess\,sup}
 
 % misc general macros and operators
 \DeclareMathOperator{\M}{{\mathcal{M}}}
@@ -94,3 +102,11 @@
 \DeclareMathOperator{\R}{{\mathbb{R}}}
 \DeclareMathOperator{\C}{{\mathbb{C}}}
 \DeclareMathOperator{\F}{{\mathbb{F}}}
+
+\DeclarePairedDelimiterX{\infdivx}[2]{(}{)}{%
+  #1\,\delimsize\|\,#2%
+}
+\newcommand{\DKL}{H\infdivx}
+
+\DeclareMathOperator{\Tan}{Tan}
+\DeclareMathOperator{\loc}{loc}
