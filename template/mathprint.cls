@@ -22,6 +22,8 @@
 \RequirePackage{stmaryrd}
 \SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n} % fix missing bold font error
 
+\allowdisplaybreaks
+
 % styling
 % -------
 
