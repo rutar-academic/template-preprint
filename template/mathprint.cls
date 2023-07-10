@@ -41,6 +41,7 @@
 
 % section headers
 \RequirePackage{titlesec}
+\newcommand{\addperiod}[1]{#1.}
 
 \titleformat{\section}[block]%
   {\large\scshape\filcenter}% format
@@ -48,18 +49,18 @@
   {1em}% sep
   {}% before-code
 
-\titleformat{\subsection}[hang]%
-  {\large\bfseries\filright}% format
+\titleformat{\subsection}[runin]%
+  {\bfseries\filright}% format
   {\thesubsection.}% label
-  {1em}% sep
-  {}% before-code
+  {.5em}% sep
+  {\addperiod}% before-code
 
 \titleformat{\subsubsection}[runin]%
-  {\bfseries\filright}% format
+  {\itshape\filright}% format
   {\thesubsubsection.}% label
   {.5em}% sep
-  {}% before-code
-  [.]% after-code
+  {\addperiod}% before-code
+
 
 % redefine abstract to be inline
 \renewenvironment{abstract}
