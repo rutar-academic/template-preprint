@@ -137,6 +137,8 @@
 \def\footrule{\nointerlineskip\if@fancyplain\let\footrulewidth\plainfootrulewidth\fi%
     {\rule{0.25\textwidth}{\footrulewidth}} \vskip-\footrulewidth}
 
+\newcommand{\journalcite}[1]{\journal{\textcite{#1}}}
+
 \fancypagestyle{plain}{\fancyhf{}\@journal}
 
 % custom acknowledgements environment
@@ -246,7 +248,7 @@
 \DeclareFieldFormat{journaltitle}{#1}
 \DeclareFieldFormat{booktitle}{\mkbibquote{#1}}
 
-% italicsed title
+% italicised title
 \DeclareFieldFormat
   [article,preprint,inbook,incollection,inproceedings,thesis]
   {title}{\mkbibemph{#1\isdot}}
@@ -276,6 +278,14 @@
 \DeclareFieldFormat{eprint:zbmath}{\href{https://zbmath.org/#1}{\nolinkurl{zbmath:#1}}}
 \DeclareFieldFormat{eprint:doi}{\href{https://doi.org/#1}{\nolinkurl{doi:#1}}}
 \DeclareFieldFormat{eprint:mr}{\href{https://mathscinet.ams.org/mathscinet-getitem?mr=#1}{\nolinkurl{MR#1}}}
+
+% custom citation command
+\DeclareCiteCommand{\textcite}{%
+  \usebibmacro{journalshort}
+  \newunit
+  \usebibmacro{note+pages}%
+  \usebibmacro{archive}%
+\usebibmacro{finentry}}{}{}{}
 
 % main drivers
 \DeclareBibliographyDriver{preprint}{%
