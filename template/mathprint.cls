@@ -1,5 +1,8 @@
+% for information about this template, visit
+%   https://github.com/rutar-academic/template-preprint
+%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{mathprint}[2023/06/05 Mathematics Preprint Class]
+\ProvidesClass{mathprint}[2023/07/13 Mathematics Preprint Class]
 
 \DeclareOption{toc}{\AfterEndEnvironment{abstract}{\tableofcontents}}
 \ProcessOptions\relax
