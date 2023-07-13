@@ -1,6 +1,6 @@
 # Preprint Template
 
-## Instructions
+## Installation
 This is a template for use with [copier](https://copier.readthedocs.io/en/stable/).
 If you want to use this template yourself, you first need to install copier (e.g. `pip install copier`), create a new directory, change into it, and then then run
 ```sh
@@ -10,9 +10,7 @@ If this template has updated and you also want to update your local template, fr
 ```sh
 copier update
 ```
-
-# Template Information
-The template includes a class file `mathprint.cls` and a macro file `rutarmacros`.
+You might also be interested in only the class file [`mathprint.cls`](/template/mathprint.cls) and the macro file [`rutarmacros.sty`](template/rutarmacros.sty).
 
 ## Class Options
 This class defines the following options.
@@ -65,7 +63,6 @@ which will be rendered in the bibliography as
 
 > A. Rutar. *An example article*. Preprint. `arxiv:2206.06921`.
 
-If you do no
 You can also include a `journal` entry (e.g. `journal = {Journal Name}`) in which case it will be rendered as
 
 > A. Rutar. *An example article*. To appear in: Journal Name. `arxiv:2206.06921`.
@@ -100,6 +97,6 @@ It is recommended to use the `\cref` command to make proper citations.
 1. `\hypersetup` is used to include PDF metadata, which is generated from the authors and the title.
    If your title has math characters in it, you need to use `\texorpdfstring{<tex>}{<string>}` to avoid hyperref errors.
 
-### Display breaks
+## Display breaks
 This template uses `\allowdisplaybreaks`.
 In order to prevent unwanted display breaks on certain newlines, use `\\*`.
