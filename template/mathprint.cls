@@ -422,7 +422,7 @@
 
 % hyperref
 % --------
-\RequirePackage[bookmarks=true,hidelinks]{hyperref}
+\RequirePackage[bookmarks=true,hidelinks,unicode,naturalnames]{hyperref}
 \RequirePackage{bookmark}
 \RequirePackage{xcolor}
 \newcommand\myshade{85}
