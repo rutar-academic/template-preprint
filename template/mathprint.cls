@@ -142,7 +142,12 @@
 
 \newcommand{\journalcite}[1]{\journal{\textcite{#1}}}
 
-\fancypagestyle{plain}{\fancyhf{}\@journal}
+\newcommand{\journalurl}[1]{\def\@journal{%
+  \renewcommand{\footrulewidth}{0.4pt}%
+  \fancyfoot[L]{\footnotesize \textit{Available online.}\enspace \url{#1}}
+}}
+
+\fancypagestyle{plain}{\fancyhf{}\@journal} % set `plain` pagestyle which is used for the first page only
 
 % custom acknowledgements environment
 \newenvironment{acknowledgements}
