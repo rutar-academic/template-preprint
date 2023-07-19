@@ -235,15 +235,16 @@
   backend=biber,
   backref=false,
   clearlang=true,
-  giveninits=true,
-  natbib=true,
-  style=alphabetic,
+  date=year,
   doi=false,
+  giveninits=true,
   isbn=false,
   maxbibnames=99,
   minalphanames=3,
-  url=false,
-  date=year
+  natbib=true,
+  sortcites=true,
+  style=alphabetic,
+  url=false
 ]{biblatex}
 
 \AtBeginBibliography{\raggedright}
