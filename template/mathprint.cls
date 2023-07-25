@@ -463,4 +463,4 @@
 \crefformat{itheorem}{#2Theorem #1#3}
 \crefformat{icorollary}{#2Corollary #1#3}
 \crefformat{section}{#2§#1#3}
-\crefformat{subsection}{#2§§#1#3}
+\crefformat{subsection}{#2§#1#3}
