@@ -172,7 +172,7 @@
 
 \AtEndPreamble{
   \hypersetup{
-    pdfauthor = \@authors
+    pdfauthor = \@authors,
     pdftitle = \@title
   }
 }
