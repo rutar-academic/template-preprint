@@ -72,20 +72,32 @@
   {\end{quotation}}
 
 \RequirePackage{longtable}
+
+% build author lists
+\RequirePackage{xstring}
+\newcommand{\@makeauthlist}[1]{%
+    \ifnumequal{\value{sepcount}}{-1}{#1}{%
+        \ifnumequal{\value{sepcount}}{0}{\StrSubstitute{#1}{,~\&~}{~\&~}}{%
+            \StrSubstitute[\value{sepcount}]{#1}{,~\&~}{,~}%
+}}}
+
 % allow inputting multiple authors with separate commands
 \newcommand*\@authors{}
+\newcounter{sepcount}
+\setcounter{sepcount}{-2}
 \newcommand*\@headauthors{}
 \newcommand*\@addresslist{}
 \renewcommand*\author[4][]{%
+   \stepcounter{sepcount}
    \ifx\@authors\empty
      \def\@authors{#2}%
    \else
-     \g@addto@macro\@authors{~\&~#2}%
+     \g@addto@macro\@authors{,~\&~#2}%
    \fi
    \ifx\@headauthors\empty
        \def\@headauthors{\ifstrempty{#1}{#2}{#1}}%
    \else
-     \g@addto@macro\@headauthors{~\&~\ifstrempty{#1}{#2}{#1}}%
+       \g@addto@macro\@headauthors{,~\&~\ifstrempty{#1}{#2}{#1}}%
    \fi
    \ifx\@addresslist\empty%
    \else
@@ -113,7 +125,7 @@
     \vskip 1.5em%
     {\large\scshape
       \lineskip .5em%
-      \@authors}%
+      \@makeauthlist{\@authors}}%
   \end{center}%
   \par
   \vskip 1.5em}
@@ -125,7 +137,7 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 \fancyhf{}
-\fancyhead[CE]{\small\scshape\@headauthors}
+\fancyhead[CE]{\small\scshape\@makeauthlist{\@headauthors}}
 \fancyhead[CO]{\small\scshape\@shorttitle}
 \fancyhead[LE]{\small\thepage}
 \fancyhead[RO]{\small\thepage}
@@ -160,7 +172,7 @@
 
 \AtEndPreamble{
   \hypersetup{
-    pdfauthor = \@authors,
+    pdfauthor = \@authors
     pdftitle = \@title
   }
 }
