@@ -4,7 +4,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{mathprint}[2023/07/13 Mathematics Preprint Class]
 
-\DeclareOption{toc}{\AfterEndEnvironment{abstract}{\tableofcontents}}
+\DeclareOption{toc}{\AfterEndEnvironment{abstract}{\setcounter{tocdepth}{2}\tableofcontents}}
 \ProcessOptions\relax
 
 \LoadClass[12pt,a4paper,twoside,leqno]{article}
