@@ -196,6 +196,10 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{question}[theorem]{Question}
 
+% custom theorem for referencing
+\newtheorem*{restatementbase}{Restatement}
+\newenvironment{restatement}[1]{\begin{restatementbase}[of~\cref{#1}]}{\end{restatementbase}}
+
 % theorems for introduction (alphabetic numbering)
 \newtheorem{itheorem}{Theorem}[section]
 \renewcommand*{\theitheorem}{\Alph{itheorem}}
