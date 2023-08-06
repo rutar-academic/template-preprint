@@ -257,8 +257,10 @@
   isbn=false,
   maxbibnames=99,
   minalphanames=3,
+  mincrossrefs=9,
   natbib=true,
   sortcites=true,
+  sorting=nyt,
   style=alphabetic,
   url=false
 ]{biblatex}
