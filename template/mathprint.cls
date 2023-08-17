@@ -473,12 +473,12 @@
 % Format references
 \crefformat{enumi}{#2#1#3}
 \crefformat{equation}{(#2#1#3)}
-\crefformat{theorem}{#2Theorem #1#3}
-\crefformat{lemma}{#2Lemma #1#3}
-\crefformat{proposition}{#2Proposition #1#3}
-\crefformat{corollary}{#2Corollary #1#3}
-\crefformat{claim}{#2Claim #1#3}
-\crefformat{itheorem}{#2Theorem #1#3}
-\crefformat{icorollary}{#2Corollary #1#3}
+\crefformat{theorem}{#2Theorem~#1#3}
+\crefformat{lemma}{#2Lemma~#1#3}
+\crefformat{proposition}{#2Proposition~#1#3}
+\crefformat{corollary}{#2Corollary~#1#3}
+\crefformat{claim}{#2Claim~#1#3}
+\crefformat{itheorem}{#2Theorem~#1#3}
+\crefformat{icorollary}{#2Corollary~#1#3}
 \crefformat{section}{#2§#1#3}
 \crefformat{subsection}{#2§#1#3}
