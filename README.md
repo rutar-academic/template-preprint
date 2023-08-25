@@ -71,7 +71,7 @@ You can also include a `journal` entry (e.g. `journal = {Journal Name}`) in whic
 ### Rendering of archive sources
 This template (ab)uses the `eprint` and `eprinttype` entries in order to render archive information.
 For example, if you include the lines
-```
+```bib
 eprint = {1337.28015},
 eprinttype = {zbl}
 ```
