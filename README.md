@@ -10,7 +10,7 @@ If this template has updated and you also want to update your local template, fr
 ```sh
 copier update
 ```
-You might also be interested in only the class file [`mathprint.cls`](/template/mathprint.cls) and the macro file [`rutarmacros.sty`](template/rutarmacros.sty).
+You might also be interested in only the project files: these can be found on the [releases page](https://github.com/rutar-academic/template-preprint/releases/latest).
 
 ## Class Options
 This class defines the following options.
