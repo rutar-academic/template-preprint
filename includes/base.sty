@@ -1,0 +1,12 @@
+% for information about this template, visit
+%   https://github.com/rutar-academic/template-preprint
+%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{mathprint}[2023/07/13 Mathematics Preprint Class]
+
+\DeclareOption{toc}{\AfterEndEnvironment{abstract}{\setcounter{tocdepth}{2}\tableofcontents}}
+\ProcessOptions\relax
+
+\LoadClass[12pt,a4paper,twoside,leqno]{article}
+\RequirePackage[left=3cm, right=3cm, top=3cm, bottom=3cm]{geometry}
+\RequirePackage[leqno]{amsmath} % process leqno option

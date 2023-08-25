@@ -1,0 +1,152 @@
+% styling
+% -------
+
+% fonts
+\RequirePackage{palatino}
+
+% captions
+\RequirePackage[
+  labelfont={sc},
+  singlelinecheck=true, % centered single-lined captions
+  format=plain,
+  margin=1cm,
+  labelsep={period},
+]{caption}
+
+% section headers
+\RequirePackage{titlesec}
+\newcommand{\addperiod}[1]{#1.}
+
+\titleformat{\section}[block]%
+  {\large\scshape\filcenter}% format
+  {\thesection.}% label
+  {1em}% sep
+  {}% before-code
+
+\titleformat{\subsection}[runin]%
+  {\bfseries\filright}% format
+  {\thesubsection.}% label
+  {.5em}% sep
+  {\addperiod}% before-code
+
+\titleformat{\subsubsection}[runin]%
+  {\itshape\filright}% format
+  {\thesubsubsection.}% label
+  {.5em}% sep
+  {\addperiod}% before-code
+
+
+% redefine abstract to be inline
+\renewenvironment{abstract}
+ {\small
+  \begin{quotation}\textsc{Abstract.}~}
+  {\end{quotation}}
+
+\RequirePackage{longtable}
+
+% build author lists
+\RequirePackage{xstring}
+\newcommand{\@makeauthlist}[1]{%
+    \ifnumequal{\value{sepcount}}{-1}{#1}{%
+        \ifnumequal{\value{sepcount}}{0}{\StrSubstitute{#1}{,~\&~}{~\&~}}{%
+            \StrSubstitute[\value{sepcount}]{#1}{,~\&~}{,~}%
+}}}
+
+% allow inputting multiple authors with separate commands
+\newcommand*\@authors{}
+\newcounter{sepcount}
+\setcounter{sepcount}{-2}
+\newcommand*\@headauthors{}
+\newcommand*\@addresslist{}
+\renewcommand*\author[4][]{%
+   \stepcounter{sepcount}
+   \ifx\@authors\empty
+     \def\@authors{#2}%
+   \else
+     \g@addto@macro\@authors{,~\&~#2}%
+   \fi
+   \ifx\@headauthors\empty
+       \def\@headauthors{\ifstrempty{#1}{#2}{#1}}%
+   \else
+       \g@addto@macro\@headauthors{,~\&~\ifstrempty{#1}{#2}{#1}}%
+   \fi
+   \ifx\@addresslist\empty%
+   \else
+     \g@addto@macro\@addresslist{\\}
+   \fi
+   \g@addto@macro\@addresslist{
+     \begin{minipage}[t]{0.95\textwidth}
+       \itshape\textbf{#2}
+       \ifstrempty{#2}{}{\\#3}
+       \ifstrempty{#3}{}{\\\normalfont Email: \href{mailto:#3}{\texttt{#4}}}
+     \end{minipage}%
+   }
+}
+
+\newcommand*\@shorttitle{}
+
+% customize title printing
+\renewcommand\title[2][]{\renewcommand\@title{#2}\ifstrempty{#1}{\renewcommand\@shorttitle{#2}}{\renewcommand\@shorttitle{#1}}}
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 2em%
+  \begin{center}%
+    {\LARGE \@title \par}%
+    \vskip 1.5em%
+    {\large\scshape
+      \lineskip .5em%
+      \@makeauthlist{\@authors}}%
+  \end{center}%
+  \par
+  \vskip 1.5em}
+
+% generate headers
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headheight}{14pt}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhf{}
+\fancyhead[CE]{\small\scshape\@makeauthlist{\@headauthors}}
+\fancyhead[CO]{\small\scshape\@shorttitle}
+\fancyhead[LE]{\small\thepage}
+\fancyhead[RO]{\small\thepage}
+
+% generate footnote with journal for titlepage with \journal command
+\newcommand*\@journal{}
+\newcommand{\journal}[1]{\def\@journal{%
+  \renewcommand{\footrulewidth}{0.4pt}%
+  \fancyfoot[L]{\footnotesize \textit{Journal ref.}\enspace #1}
+}}
+
+\def\footrule{\nointerlineskip\if@fancyplain\let\footrulewidth\plainfootrulewidth\fi%
+    {\rule{0.25\textwidth}{\footrulewidth}} \vskip-\footrulewidth}
+
+\newcommand{\journalcite}[1]{\journal{\textcite{#1}}}
+
+\newcommand{\journalurl}[1]{\def\@journal{%
+  \renewcommand{\footrulewidth}{0.4pt}%
+  \fancyfoot[L]{\footnotesize \textit{Available online.}\enspace \url{#1}}
+}}
+
+\fancypagestyle{plain}{\fancyhf{}\@journal} % set `plain` pagestyle which is used for the first page only
+
+% custom acknowledgements environment
+\newenvironment{acknowledgements}
+  {\section*{Acknowledgements}\addcontentsline{toc}{section}{Acknowledgements}}
+  {}
+
+% print title, bibliography, and addresslist
+\AtBeginDocument{\maketitle}
+\AtEndDocument{\printbibliography\renewcommand*{\arraystretch}{2.5}\noindent\begin{longtable}{l}\@addresslist\end{longtable}}
+
+\AtEndPreamble{
+  \hypersetup{
+    pdfauthor = \@authors,
+    pdftitle = \@title
+  }
+}
+
+% warnings if things are missing
+\AtBeginDocument{\ifx\@authors\empty\ClassError{mathprint}{No authors provided}\fi}

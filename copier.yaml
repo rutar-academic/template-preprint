@@ -6,4 +6,14 @@ _subdirectory: template
 _skip_if_exists:
   - "*.tex"
   - "*.bib"
-  - "macros.sty"
+
+_envops:
+  block_start_string: "\\BLOCK{"
+  block_end_string: "}"
+  variable_start_string: "\\VAR{"
+  variable_end_string: "}"
+  comment_start_string: "\\#{"
+  comment_end_string: "}"
+  line_statement_prefix: "%%"
+  line_comment_prefix: "%#"
+  keep_trailing_newline: false

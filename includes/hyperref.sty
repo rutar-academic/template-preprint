@@ -1,0 +1,16 @@
+% hyperref
+% --------
+\RequirePackage[bookmarks=true,hidelinks,unicode,naturalnames]{hyperref}
+\RequirePackage{bookmark}
+\RequirePackage{xcolor}
+\newcommand\myshade{85}
+\colorlet{mylinkcolor}{violet}
+\colorlet{mycitecolor}{orange!50!yellow}
+\colorlet{myurlcolor}{green!50!blue}
+
+\hypersetup{
+    linkcolor  = mylinkcolor!\myshade!black,
+    citecolor  = mycitecolor!\myshade!black,
+    urlcolor   = myurlcolor!\myshade!black,
+    colorlinks = true
+}
