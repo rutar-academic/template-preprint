@@ -18,12 +18,12 @@ jobs:
       - name: Install copier
         run: python -m pip install copier
       - name: Generate template
-        run: copier copy . project
+        run: copier copy . build
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            "project/00README.XXX"
-            "project/*.sty"
-            "project/*.tex"
-            "project/*.cls"
+            build/00README.XXX
+            build/*.sty
+            build/*.tex
+            build/*.cls
