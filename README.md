@@ -23,7 +23,7 @@ For example,
 ```tex
 \title[My Short Title]{My Very Long and Unwieldy Full Title}
 ```
-An `\author` command is also given, which takes three mandatory arguments (name, physical address, email), and an option argument for a short version of your name.
+An `\author` command is also given, which takes three mandatory arguments (name, physical address, email), and an optional argument for a short version of your name.
 For example,
 ```tex
 \author[Rutar]
@@ -53,19 +53,19 @@ An example entry is
 ```bib
 @preprint{example,
   author = {Rutar, Alex},
-  eprint = {1111.1111},
+  eprint = {1111.11111},
   eprinttype = {arxiv},
   title = {An example article},
-  year = {2022}
+  year = {2023}
 }
 ```
 which will be rendered in the bibliography as
 
-> A. Rutar. *An example article*. Preprint. `arxiv:2206.06921`.
+> A. Rutar. *An example article*. Preprint. `arxiv:1111.11111`.
 
 You can also include a `journal` entry (e.g. `journal = {Journal Name}`) in which case it will be rendered as
 
-> A. Rutar. *An example article*. To appear in: Journal Name. `arxiv:2206.06921`.
+> A. Rutar. *An example article*. To appear in: Journal Name. `arxiv:1111.11111`.
 
 
 ### Rendering of archive sources
@@ -83,8 +83,8 @@ The supported `eprinttype` options are: `arxiv`, `zbl`, `zbmath`, `doi`, `mr`.
 
 1. Empty bibliography warnings are suppressed.
 2. The `\textcite` command is modified to print the journal name, the pages, and the archive.
-3. You can include a journal reference on the first page using `\journal`.
-   If you have the journal reference in your `.bib` file, you can use the `\journalcite` shortcut.
+3. You can include a journal reference on the first page using `\journal` command in the preamble, which takes exactly one argument.
+   If you have the journal reference in your `.bib` file, you can use the `\journalcite` shortcut command in the preamble, which takes exactly one argument.
 
 ## Hyperref and references
 The packages [hyperref](https://ctan.org/pkg/hyperref?lang=en), [cleveref](https://ctan.org/pkg/cleveref?lang=en), and [ntheorem](https://ctan.org/pkg/ntheorem?lang=en) are loaded with proper ordering and dependencies.
@@ -92,9 +92,8 @@ It is recommended to use the `\cref` command to make proper citations.
 
 1. The defined standard environments are: `theorem`, `lemma`, `corollary`, `conjecture`, `proposition`, `question`, `definition`, `notation`, `example`, `remark`, `proof`, `solution`.
 2. The defined introduction theorem environments are `itheorem` and `icorollary` which are rendered with letters instead of numbers.
-3. There are a few special environments: `nmproof` defines a proof environment without a mark, the `proofpart` environment is designed to be used inside a `proof` environment to render separate Parts
-
-1. `\hypersetup` is used to include PDF metadata, which is generated from the authors and the title.
+3. There are a few special environments: `nmproof` defines a proof environment without a mark, and the `proofpart` environment is designed to be used inside a `proof` environment to render separate Parts
+4. `\hypersetup` is used to generate PDF metadata, which is generated from the authors and the title.
    If your title has math characters in it, you need to use `\texorpdfstring{<tex>}{<string>}` to avoid hyperref errors.
 
 ## Display breaks
