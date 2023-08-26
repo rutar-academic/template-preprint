@@ -141,12 +141,5 @@
 \AtBeginDocument{\maketitle}
 \AtEndDocument{\printbibliography\renewcommand*{\arraystretch}{2.5}\noindent\begin{longtable}{l}\@addresslist\end{longtable}}
 
-\AtEndPreamble{
-  \hypersetup{
-    pdfauthor = \@authors,
-    pdftitle = \@title
-  }
-}
-
 % warnings if things are missing
 \AtBeginDocument{\ifx\@authors\empty\ClassError{mathprint}{No authors provided}\fi}
