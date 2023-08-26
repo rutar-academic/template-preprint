@@ -5,7 +5,7 @@ _subdirectory: template
 
 _skip_if_exists:
   - "*.tex"
-  - "*.bib"
+  - "macros.sty"
 
 _envops:
   block_start_string: "\\BLOCK{"
