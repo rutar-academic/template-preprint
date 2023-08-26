@@ -1,9 +1,9 @@
 .PHONY: all clean
 
-all: project
+all: build
 
 clean:
-	rm -rf project test
+	rm -rf build test
 
 build:
 	copier copy --vcs-ref HEAD . build
