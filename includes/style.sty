@@ -134,12 +134,12 @@
 
 % custom acknowledgements environment
 \newenvironment{acknowledgements}
-  {\section*{Acknowledgements}\addcontentsline{toc}{section}{Acknowledgements}}
+  {\phantomsection\section*{Acknowledgements}\addcontentsline{toc}{section}{Acknowledgements}}
   {}
 
 % print title, bibliography, and addresslist
 \AtBeginDocument{\maketitle}
-\AtEndDocument{\printbibliography\renewcommand*{\arraystretch}{2.5}\noindent\begin{longtable}{l}\@addresslist\end{longtable}}
+\AtEndDocument{\phantomsection\printbibliography[heading=bibintoc]\renewcommand*{\arraystretch}{2.5}\noindent\begin{longtable}{l}\@addresslist\end{longtable}}
 
 % warnings if things are missing
 \AtBeginDocument{\ifx\@authors\empty\ClassError{mathprint}{No authors provided}\fi}
