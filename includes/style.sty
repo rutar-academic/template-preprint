@@ -77,8 +77,8 @@
    \g@addto@macro\@addresslist{
      \begin{minipage}[t]{0.95\textwidth}
        \itshape\textbf{#2}
-       \ifstrempty{#2}{}{\\#3}
-       \ifstrempty{#3}{}{\\\normalfont Email: \href{mailto:#3}{\texttt{#4}}}
+       \ifstrempty{#3}{}{\\#3}
+       \ifstrempty{#4}{}{\\\normalfont Email: \href{mailto:#4}{\texttt{#4}}}
      \end{minipage}%
    }
 }
