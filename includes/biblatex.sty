@@ -53,10 +53,11 @@
   {\printfield[eprint:\strfield{eprinttype}]{eprint}}
 }
 \DeclareFieldFormat{eprint:arxiv}{\href{https://arxiv.org/abs/#1}{\nolinkurl{arxiv:#1}}}
+\DeclareFieldFormat{eprint:doi}{\href{https://doi.org/#1}{\nolinkurl{doi:#1}}}
+\DeclareFieldFormat{eprint:isbn}{\href{https://openlibrary.org/#1}{\nolinkurl{isbn:#1}}}
+\DeclareFieldFormat{eprint:mr}{\href{https://mathscinet.ams.org/mathscinet-getitem?mr=#1}{\nolinkurl{MR#1}}}
 \DeclareFieldFormat{eprint:zbl}{\href{https://zbmath.org/#1}{\nolinkurl{zbl:#1}}}
 \DeclareFieldFormat{eprint:zbmath}{\href{https://zbmath.org/#1}{\nolinkurl{zbmath:#1}}}
-\DeclareFieldFormat{eprint:doi}{\href{https://doi.org/#1}{\nolinkurl{doi:#1}}}
-\DeclareFieldFormat{eprint:mr}{\href{https://mathscinet.ams.org/mathscinet-getitem?mr=#1}{\nolinkurl{MR#1}}}
 
 % custom citation command
 \DeclareCiteCommand{\textcite}{%
