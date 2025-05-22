@@ -5,6 +5,8 @@
 \newenvironment{proofref}[1]{\begin{proof}[of \cref{#1}]}{\end{proof}}
 
 \AddToHook{env/proposition/begin}{\crefalias{theorem}{proposition}}
+\AddToHook{env/definition/begin}{\crefalias{theorem}{definition}}
+\AddToHook{env/remark/begin}{\crefalias{theorem}{remark}}
 \AddToHook{env/lemma/begin}{\crefalias{theorem}{lemma}}
 \AddToHook{env/corollary/begin}{\crefalias{theorem}{corollary}}
 \AddToHook{env/conjecture/begin}{\crefalias{theorem}{conjecture}}
