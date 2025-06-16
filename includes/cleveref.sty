@@ -4,6 +4,10 @@
 \RequirePackage[capitalise,nameinlink]{cleveref}
 \newenvironment{proofref}[1]{\begin{proof}[of \cref{#1}]}{\end{proof}}
 
+% fix so that cleveref can realize a section is an appendix
+\let\appendixold\appendix
+\renewcommand{\appendix}{\appendixold\crefalias{section}{appendix}}
+
 \AddToHook{env/proposition/begin}{\crefalias{theorem}{proposition}}
 \AddToHook{env/definition/begin}{\crefalias{theorem}{definition}}
 \AddToHook{env/remark/begin}{\crefalias{theorem}{remark}}
@@ -11,10 +15,10 @@
 \AddToHook{env/corollary/begin}{\crefalias{theorem}{corollary}}
 \AddToHook{env/conjecture/begin}{\crefalias{theorem}{conjecture}}
 \AddToHook{env/question/begin}{\crefalias{theorem}{question}}
-\AddToHook{env/itheorem/begin}{\crefalias{theorem}{itheorem}}
-\AddToHook{env/ilemma/begin}{\crefalias{theorem}{ilemma}}
-\AddToHook{env/iproposition/begin}{\crefalias{theorem}{iproposition}}
-\AddToHook{env/icorollary/begin}{\crefalias{theorem}{icorollary}}
+\AddToHook{env/itheorem/begin}{\crefalias{itheorem}{itheorem}}
+\AddToHook{env/ilemma/begin}{\crefalias{itheorem}{ilemma}}
+\AddToHook{env/iproposition/begin}{\crefalias{itheorem}{iproposition}}
+\AddToHook{env/icorollary/begin}{\crefalias{itheorem}{icorollary}}
 
 % Format references
 \crefformat{claim}{#2Claim~#1#3}
