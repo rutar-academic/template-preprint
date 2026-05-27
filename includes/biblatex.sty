@@ -37,13 +37,13 @@
 % custom formatting for preprints (with and without journal)
 \newbibmacro*{preprint:journal}{\iffieldundef{journaltitle}{\printtext{Preprint}}{\printtext{To appear in:}\addspace\printfield{journaltitle}\newunit}}
 
-% short journal name and volume (suppress number)
+% short journal name and volume (suppress issue/number)
 \newbibmacro*{journalshort}{%
   \usebibmacro{journal}%
   \setunit*{\addspace}%
   \printfield{volume}
   \setunit{\addspace}%
-  \usebibmacro{issue+date}%
+  \printtext[parens]{\usebibmacro{date}}%
   \newunit}
 
 \DeclareFieldFormat[preprint]{labelalpha}{#1+} % change formatting for manuscript
