@@ -4,6 +4,11 @@
 \RequirePackage[capitalise,nameinlink]{cleveref}
 \newenvironment{proofref}[1]{\begin{proof}[of \cref{#1}]}{\end{proof}}
 
+% fix incorrect claim anchors
+\newcounter{claimanchor}
+\AtBeginEnvironment{claim}{\stepcounter{claimanchor}}
+\renewcommand*{\theHclaim}{\arabic{claimanchor}}
+
 % fix so that cleveref can realize a section is an appendix
 \let\appendixold\appendix
 \renewcommand{\appendix}{\appendixold\crefalias{section}{appendix}}
