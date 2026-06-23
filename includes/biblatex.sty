@@ -24,6 +24,7 @@
 
 % bold volume number; plain pages
 \DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
+\DeclareFieldFormat[article]{eid}{Article No.\addspace#1}
 \DeclareFieldFormat[book,collection,proceedings,inproceedings]{number}{\mkbibbold{#1}}
 \DeclareFieldFormat{pages}{#1}
 \DeclareFieldFormat{journaltitle}{#1}
@@ -46,6 +47,21 @@
   \printtext[parens]{\usebibmacro{date}}%
   \newunit}
 
+\newbibmacro*{article:note+pages}{%
+  \printfield{note}%
+  \iffieldundef{eid}
+    {\setunit{\bibpagespunct}%
+     \printfield{pages}}
+    {\iffieldundef{pages}
+       {}
+       {\BibliographyWarning{%
+          Ignoring 'pages' field because 'eid' is present}}%
+     \setunit{\bibpagespunct}%
+     \printfield{eid}%
+     \setunit{\bibpagespunct}%
+     \printfield{pagetotal}}%
+  \newunit}
+
 \DeclareFieldFormat[preprint]{labelalpha}{#1+} % change formatting for manuscript
 
 % eprint / archive
@@ -66,7 +82,7 @@
 \DeclareCiteCommand{\textcite}{%
   \usebibmacro{journalshort}
   \newunit
-  \usebibmacro{note+pages}%
+  \usebibmacro{article:note+pages}%
   \usebibmacro{archive}%
 \usebibmacro{finentry}}{}{}{}
 
@@ -94,7 +110,7 @@
   \newunit\newblock
   \usebibmacro{journalshort}
   \newunit
-  \usebibmacro{note+pages}%
+  \usebibmacro{article:note+pages}%
   \usebibmacro{archive}%
   \usebibmacro{finentry}}
 
