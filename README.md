@@ -49,6 +49,7 @@ To include `.bib` files, just use `\addbibresource{your-file.bib}` somewhere in 
 ### Preprint Entry Type
 The BibLaTeX code defines a non-standard `@preprint` entry.
 The citation key inside the document appends a `+` to the year, to indicate non-published status.
+Preprint labels are disambiguated separately from published labels.
 An example entry is
 ```bib
 @preprint{example,
